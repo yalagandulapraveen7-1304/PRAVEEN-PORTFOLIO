@@ -1,0 +1,948 @@
+glass-card rounded-3xl
+bg-brand-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Praveen Yalagandula | Full-Stack Developer &amp; AI-Augmented Engineer</title>
+  <meta name="description" content="Praveen Yalagandula — Full-Stack Developer combining modern web engineering with AI-driven iteration. End-to-end product development, custom software, and digital branding." />
+  <meta name="keywords" content="Praveen Yalagandula, Full-Stack Developer, AI Development, Web Engineering, Python, C, Digital Branding" />
+  <meta property="og:title" content="Praveen Yalagandula | Full-Stack Development, Accelerated by AI" />
+  <meta property="og:description" content="I design, build, and ship complete digital products — combining modern web engineering with rapid, AI-driven iteration." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#f0f4ff',
+              100: '#dbe4ff',
+              200: '#bac8ff',
+              300: '#91a7ff',
+              400: '#748ffc',
+              500: '#5c7cfa',
+              600: '#4c6ef5',
+              700: '#4263eb',
+              800: '#3b5bdb',
+              900: '#364fc7',
+            },
+            accent: {
+              400: '#e879f9',
+              500: '#d946ef',
+              600: '#c026d3',
+            },
+            surface: {
+              900: '#070712',
+              800: '#0d0d20',
+              700: '#12122e',
+              600: '#1a1a3e',
+            }
+          },
+          animation: {
+            'gradient-shift': 'gradientShift 8s ease infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'slide-up': 'slideUp 0.6s ease forwards',
+            'fade-in': 'fadeIn 0.8s ease forwards',
+          },
+          keyframes: {
+            gradientShift: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+              '50%': { opacity: '1', transform: 'scale(1.05)' },
+            },
+            slideUp: {
+              from: { opacity: '0', transform: 'translateY(30px)' },
+              to: { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              from: { opacity: '0' },
+              to: { opacity: '1' },
+            },
+          },
+          backdropBlur: {
+            xs: '2px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ===== Base & Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-family: 'Inter', system-ui, sans-serif; }
+    body {
+      background-color: #070712;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    /* ===== Scrollbar Hide ===== */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ===== Animated Gradient Background ===== */
+    .hero-bg-gradient {
+      background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(92, 124, 250, 0.18) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 50% at 80% 80%, rgba(217, 70, 239, 0.10) 0%, transparent 60%),
+                  #070712;
+    }
+
+    /* ===== Noise Texture Overlay ===== */
+    .noise::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ===== Glassmorphism Card ===== */
+    .glass-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.14);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px -10px rgba(0,0,0,0.5), 0 0 0 1px rgba(92,124,250,0.12);
+    }
+
+    /* ===== Service Card Hover Glow ===== */
+    .service-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card-blue::before  { background: radial-gradient(circle at 30% 30%, rgba(92,124,250,0.15), transparent 60%); }
+    .service-card-purple::before { background: radial-gradient(circle at 70% 30%, rgba(217,70,239,0.15), transparent 60%); }
+    .service-card-teal::before  { background: radial-gradient(circle at 50% 80%, rgba(20,184,166,0.15), transparent 60%); }
+
+    /* ===== Gradient Text ===== */
+    .gradient-text {
+      background: linear-gradient(135deg, #fff 0%, #bac8ff 40%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-blue {
+      background: linear-gradient(135deg, #748ffc, #5c7cfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== CTA Button ===== */
+    .cta-btn {
+      background: linear-gradient(135deg, #4c6ef5 0%, #d946ef 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 4s ease infinite;
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 40px rgba(92,124,250,0.5), 0 0 80px rgba(217,70,239,0.2);
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50%       { background-position: 100% 50%; }
+    }
+
+    /* ===== Spotlight Gallery ===== */
+    #gallery-track .project-card {
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  filter 0.35s ease,
+                  opacity 0.35s ease,
+                  box-shadow 0.35s ease;
+    }
+    #gallery-track.has-hover .project-card { filter: brightness(0.55) saturate(0.6); opacity: 0.75; }
+    #gallery-track.has-hover .project-card:hover {
+      filter: brightness(1) saturate(1);
+      opacity: 1;
+      transform: scale(1.03);
+      box-shadow: 0 0 50px rgba(92,124,250,0.35), 0 25px 50px -15px rgba(0,0,0,0.7);
+      z-index: 10;
+    }
+
+    /* ===== Contact Card Hover States ===== */
+    .contact-card { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .contact-card .icon-wrap { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    .contact-card:hover .icon-wrap { transform: scale(1.2) rotate(8deg); }
+
+    /* ===== Testimonial Quote Mark ===== */
+    .quote-mark {
+      font-size: 5rem;
+      line-height: 0.8;
+      font-family: 'Georgia', serif;
+      color: rgba(92,124,250,0.25);
+    }
+
+    /* ===== Drag Cursor ===== */
+    .drag-scroll { cursor: grab; user-select: none; }
+    .drag-scroll.is-dragging { cursor: grabbing; }
+
+    /* ===== Section Label ===== */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #748ffc;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(116,143,252,0.25);
+      border-radius: 9999px;
+      background: rgba(116,143,252,0.08);
+    }
+
+    /* ===== Responsive Grid Rows ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-rows: repeat(2, 220px);
+      grid-auto-flow: column;
+      grid-auto-columns: 280px;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-rows: repeat(2, 260px);
+        grid-auto-columns: 340px;
+      }
+    }
+
+    /* ===== Scroll Snap ===== */
+    .snap-container {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .snap-child { scroll-snap-align: start; }
+
+    /* ===== Subtle Grid Lines ===== */
+    .grid-lines {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ===== Float Animation ===== */
+    .float-anim { animation: float 6s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    /* ===== Reveal Animation ===== */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== Nav ===== */
+    nav {
+      background: rgba(7,7,18,0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+</head>
+
+<body class="noise min-h-screen antialiased">
+
+  <!-- ================================================================
+       NAV
+  ================================================================ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" id="nav-logo" class="font-display font-bold text-lg tracking-tight gradient-text select-none">
+        PY<span class="text-white/30">.</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/50">
+        <a href="#services" class="hover:text-white transition-colors duration-200">Services</a>
+        <a href="#gallery" class="hover:text-white transition-colors duration-200">Work</a>
+        <a href="#testimonials" class="hover:text-white transition-colors duration-200">Testimonials</a>
+        <a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="#contact" id="nav-cta"
+         class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white
+                px-5 py-2.5 rounded-full cta-btn shadow-lg">
+        Let's Build
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+        </svg>
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"
+              class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors">
+        <span class="w-5 h-0.5 bg-white/70 rounded transition-all duration-300"></span>
+        <span class="w-5 h-0.5 bg-white/70 rounded transition-all duration-300"></span>
+        <span class="w-3.5 h-0.5 bg-white/70 rounded transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+      <div class="px-6 pb-6 flex flex-col gap-4 border-t border-white/5 pt-4">
+        <a href="#services" class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors">Services</a>
+        <a href="#gallery"  class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors">Work</a>
+        <a href="#testimonials" class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors">Testimonials</a>
+        <a href="#contact"  class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors">Contact</a>
+        <a href="#contact"  class="mobile-nav-link inline-flex justify-center items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-full cta-btn mt-2">
+          Let's Build →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       MAIN CONTENT
+  ================================================================ -->
+  <main class="relative z-10">
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section id="hero" class="relative hero-bg-gradient grid-lines min-h-screen flex items-center pt-16 overflow-hidden">
+
+      <!-- Background Video Placeholder -->
+      <video
+        id="hero-video"
+        class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
+        autoplay muted loop playsinline
+        aria-hidden="true"
+      >
+        <!-- Replace src with your compressed .mp4 video file -->
+        <!-- <source src="portfolio.mp4" type="video/mp4" />  -->
+      </video>
+
+      <!-- Ambient Orbs -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none float-anim" aria-hidden="true"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/15 rounded-full blur-3xl pointer-events-none float-anim" style="animation-delay: -3s;" aria-hidden="true"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 py-24 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Left: Copy -->
+          <div class="flex flex-col gap-7 reveal">
+            <span class="section-label w-fit">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+              Available for Projects
+            </span>
+
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight">
+              <span class="gradient-text">Praveen Yalagandula</span><br />
+              <span class="text-white/90 text-3xl sm:text-4xl lg:text-5xl">Full-Stack Development,</span><br />
+              <span class="gradient-text-blue text-3xl sm:text-4xl lg:text-5xl">Accelerated by AI</span>
+            </h1>
+
+            <p class="text-white/60 text-lg leading-relaxed max-w-xl">
+              I design, build, and ship complete digital products — combining modern web engineering with
+              rapid, AI-driven iteration and a dedicated design team to match.
+            </p>
+
+            <div class="flex flex-wrap gap-4 items-center">
+              <a href="#contact" id="hero-cta"
+                 class="inline-flex items-center gap-2.5 font-semibold text-white px-7 py-3.5 rounded-full cta-btn shadow-xl text-sm">
+                Start a Project
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </a>
+              <a href="#gallery" id="hero-see-work"
+                 class="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors group">
+                View My Work
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="flex flex-wrap gap-6 pt-4 border-t border-white/8">
+              <div class="flex flex-col gap-0.5">
+                <span class="text-2xl font-bold font-display gradient-text-blue">4+</span>
+                <span class="text-xs text-white/40 uppercase tracking-widest">Years Building</span>
+              </div>
+              <div class="w-px bg-white/10 self-stretch"></div>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-2xl font-bold font-display gradient-text-blue">Full-Stack</span>
+                <span class="text-xs text-white/40 uppercase tracking-widest">End-to-End</span>
+              </div>
+              <div class="w-px bg-white/10 self-stretch"></div>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-2xl font-bold font-display gradient-text-blue">AI-First</span>
+                <span class="text-xs text-white/40 uppercase tracking-widest">Workflow</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Bio Card -->
+          <div class="flex flex-col gap-6 reveal" style="transition-delay: 0.2s;">
+
+            <!-- Bio Bento Card -->
+            <article id="bio-card" class="glass-card rounded-3xl p-8 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none" aria-hidden="true"></div>
+
+              <!-- Avatar Placeholder -->
+              <div class="flex items-start gap-5 mb-6">
+                <div class="w-40 h-auto p-0.5 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <span class="text-white font-display font-bold text-xl select-none"><img class="rounded-full" src="WhatsApp Image 2026-06-21 at 6.26.55 PM.jpeg" alt=""></span>
+                </div>
+                <div>
+                  <h2 class="font-display font-bold text-white text-3xl">Praveen Yalagandula</h2>
+                  <p class="text-white/40 text-sm">IT Specialist &amp; Full-Stack Developer</p>
+                  <div class="flex gap-1.5 mt-1.5">
+                    <span class="text-xs px-3 py-0.5 rounded-full bg-brand-500/15 text-brand-300 border border-brand-500/20">C</span>
+                    <span class="text-xs px-3 py-0.5 rounded-full bg-brand-500/15 text-brand-300 border border-brand-500/20">Python</span>
+                    <span class="text-xs px-3 py-0.5 rounded-full bg-accent-500/15 text-accent-400 border border-accent-500/20">AI-Augmented</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-white/60 text-md leading-relaxed">
+                Praveen Yalagandula is an IT specialist and full-stack developer with a foundation in systems-level
+                programming <span class="text-white/80">(C, Python)</span> and modern web technologies. His work spans the
+                entire product lifecycle — from database architecture to full deployment — with a pragmatic,
+                <span class="text-white/80">efficiency-first</span> approach to problem-solving.
+              </p>
+              <p class="text-white/60 text-md leading-relaxed mt-3">
+                By integrating <span class="text-brand-400">AI-augmented development practices</span> into his workflow, he
+                delivers production-ready software faster, without compromising on structure or scalability.
+              </p>
+
+              <!-- Tech Stack Mini Bar -->
+              <div class="mt-6 pt-5 border-t border-white/8">
+                <p class="text-[0.65rem] text-white/30 uppercase tracking-widest mb-3">Tech Foundation</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-badge">C / C++</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">JavaScript</span>
+                  <span class="tech-badge">SQL</span>
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">Linux</span>
+                  <span class="tech-badge">Docker</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+    
+    </section>
+
+    <!-- ============================================================
+         SERVICES SECTION
+    ============================================================ -->
+    <section id="services" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Section Header -->
+        <div class="flex flex-col items-center text-center mb-16 reveal gap-4">
+          <span class="section-label">What I Do</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Services Built for Outcomes</h2>
+          <p class="text-white/50 max-w-lg text-base leading-relaxed">
+            Every engagement is designed around shipping real, functional products — not just code.
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal" style="transition-delay:0.1s;">
+
+          <!-- Card 1: Full-Stack -->
+          <article id="service-fullstack"
+            class="glass-card service-card service-card-blue rounded-3xl p-7 flex flex-col gap-5 min-h-[320px] group">
+            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 border border-brand-500/25 flex items-center justify-center
+                        group-hover:bg-brand-500/30 transition-colors duration-300">
+              <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2 flex-1">
+              <h3 class="font-display font-semibold text-white text-lg">Full-Stack Web Development</h3>
+              <p class="text-white/55 text-sm leading-relaxed">
+                End-to-end web application development backed by robust, well-architected databases.
+                From initial build to full deployment, I deliver fast, scalable products designed to go live without friction.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/8">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">PostgreSQL</span>
+              <span class="tech-badge">Docker</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Custom Software -->
+          <article id="service-software"
+            class="glass-card service-card service-card-purple rounded-3xl p-7 flex flex-col gap-5 min-h-[320px] group">
+            <div class="w-12 h-12 rounded-2xl bg-accent-500/20 border border-accent-500/25 flex items-center justify-center
+                        group-hover:bg-accent-500/30 transition-colors duration-300">
+              <svg class="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2 flex-1">
+              <h3 class="font-display font-semibold text-white text-lg">Custom Software &amp; Scripts</h3>
+              <p class="text-white/55 text-sm leading-relaxed">
+                Tailored solutions built in C and Python — from performance-critical applications to automation scripts
+                that solve specific operational problems. Practical, efficient code built to do exactly what you need, nothing more.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/8">
+              <span class="tech-badge-purple">C / C++</span>
+              <span class="tech-badge-purple">Python</span>
+              <span class="tech-badge-purple">Automation</span>
+              <span class="tech-badge-purple">CLI Tools</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Digital Branding -->
+          <article id="service-branding"
+            class="glass-card service-card service-card-teal rounded-3xl p-7 flex flex-col gap-5 min-h-[320px] group">
+            <div class="w-12 h-12 rounded-2xl bg-teal-500/20 border border-teal-500/25 flex items-center justify-center
+                        group-hover:bg-teal-500/30 transition-colors duration-300">
+              <svg class="w-6 h-6 text-teal-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
+              </svg>
+            </div>
+            <div class="flex flex-col gap-2 flex-1">
+              <h3 class="font-display font-semibold text-white text-lg">Digital Branding</h3>
+              <p class="text-white/55 text-sm leading-relaxed">
+                A complete digital identity, not just a working product. My in-house design and video editing team handles
+                UI/UX and visual storytelling, ensuring what I build looks and feels as strong as it performs.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/8">
+              <span class="tech-badge-teal">UI/UX Design</span>
+              <span class="tech-badge-teal">Video Editing</span>
+              <span class="tech-badge-teal">Brand Identity</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GALLERY / WORK SECTION
+    ============================================================ -->
+    <section id="gallery" class="py-24">
+      <div class="max-w-7xl mx-auto px-6 mb-10 reveal">
+        <div class="flex items-end justify-between gap-4">
+          <div class="flex flex-col gap-4">
+            <span class="section-label w-fit">Selected Work</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Products Shipped</h2>
+          </div>
+          <p class="text-white/40 text-sm text-right hidden sm:block max-w-xs leading-relaxed">
+            Drag to explore → or swipe on mobile
+          </p>
+        </div>
+      </div>
+
+      <!-- Two-Row Horizontal Gallery -->
+      <div class="overflow-x-auto hide-scrollbar snap-container drag-scroll reveal px-6"
+           id="gallery-track"
+           style="transition-delay:0.15s;"
+           role="region"
+           aria-label="Project gallery">
+        <div class="gallery-grid pb-4" style="min-width: max-content;">
+
+          <!-- Project Card 1 -->
+          <article class="project-card snap-child glass-card rounded-2xl overflow-hidden group cursor-pointer" id="project-1">
+            <div class="w-full h-full bg-gradient-to-br from-brand-800/60 to-brand-600/20 p-5 flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/5" aria-hidden="true"></div>
+              <div class="relative z-10 flex flex-col gap-3 h-full">
+                <div class="flex items-center justify-between">
+                  <span class="tech-badge">Web App</span>
+                  <svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </div>
+                <div class="mt-auto">
+                  <h3 class="font-display font-semibold text-white text-base leading-tight">SaaS Dashboard Platform</h3>
+                  <p class="text-white/45 text-xs mt-1 leading-relaxed">Full-stack analytics dashboard with real-time data, role-based auth, and PostgreSQL backend.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card snap-child glass-card rounded-2xl overflow-hidden group cursor-pointer" id="project-2">
+            <div class="w-full h-full bg-gradient-to-br from-purple-900/60 to-pink-800/20 p-5 flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/5" aria-hidden="true"></div>
+              <div class="relative z-10 flex flex-col gap-3 h-full">
+                <div class="flex items-center justify-between">
+                  <span class="tech-badge-purple">Python</span>
+                  <svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </div>
+                <div class="mt-auto">
+                  <h3 class="font-display font-semibold text-white text-base leading-tight">Automated Data Pipeline</h3>
+                  <p class="text-white/45 text-xs mt-1 leading-relaxed">Python ETL pipeline automating ingestion, transformation, and reporting for 500K+ daily records.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card snap-child glass-card rounded-2xl overflow-hidden group cursor-pointer" id="project-3">
+            <div class="w-full h-full bg-gradient-to-br from-teal-900/60 to-emerald-800/20 p-5 flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-emerald-500/5" aria-hidden="true"></div>
+              <div class="relative z-10 flex flex-col gap-3 h-full">
+                <div class="flex items-center justify-between">
+                  <span class="tech-badge-teal">Branding</span>
+                  <svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </div>
+                <div class="mt-auto">
+                  <h3 class="font-display font-semibold text-white text-base leading-tight">E-Commerce Brand Launch</h3>
+                  <p class="text-white/45 text-xs mt-1 leading-relaxed">Complete digital identity — store, UI/UX design, video ads, and social media kit.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+          <article class="project-card snap-child glass-card rounded-2xl overflow-hidden group cursor-pointer" id="project-4">
+            <div class="w-full h-full bg-gradient-to-br from-orange-900/60 to-rose-800/20 p-5 flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-rose-500/5" aria-hidden="true"></div>
+              <div class="relative z-10 flex flex-col gap-3 h-full">
+                <div class="flex items-center justify-between">
+                  <span class="tech-badge-orange">C System</span>
+                  <svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </div>
+                <div class="mt-auto">
+                  <h3 class="font-display font-semibold text-white text-base leading-tight">High-Performance CLI Tool</h3>
+                  <p class="text-white/45 text-xs mt-1 leading-relaxed">C-based system utility for log parsing and alerting, processing millions of lines/sec.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 5 -->
+          <article class="project-card snap-child glass-card rounded-2xl overflow-hidden group cursor-pointer" id="project-5">
+            <div class="w-full h-full bg-gradient-to-br from-sky-900/60 to-cyan-800/20 p-5 flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-cyan-500/5" aria-hidden="true"></div>
+              <div class="relative z-10 flex flex-col gap-3 h-full">
+                <div class="flex items-center justify-between">
+                  <span class="tech-badge-sky">AI Tool</span>
+                  <svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </div>
+                <div class="mt-auto">
+                  <h3 class="font-display font-semibold text-white text-base leading-tight">AI-Powered Content Engine</h3>
+                  <p class="text-white/45 text-xs mt-1 leading-relaxed">Python + LLM integration for automated content generation, editing, and publishing workflow.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 6 -->
+          <article class="project-card snap-child glass-card rounded-2xl overflow-hidden group cursor-pointer" id="project-6">
+            <div class="w-full h-full bg-gradient-to-br from-fuchsia-900/60 to-violet-800/20 p-5 flex flex-col justify-between relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/10 to-violet-500/5" aria-hidden="true"></div>
+              <div class="relative z-10 flex flex-col gap-3 h-full">
+                <div class="flex items-center justify-between">
+                  <span class="tech-badge-purple">Full-Stack</span>
+                  <svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </div>
+                <div class="mt-auto">
+                  <h3 class="font-display font-semibold text-white text-base leading-tight">Multi-Tenant CRM App</h3>
+                  <p class="text-white/45 text-xs mt-1 leading-relaxed">Deployed CRM with multi-tenant architecture, secure auth, billing integration, and custom reporting.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIALS SECTION
+    ============================================================ -->
+    <section id="testimonials" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-14 reveal gap-4">
+          <span class="section-label">Testimonials</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Clients, on the Record</h2>
+        </div>
+
+        <!-- Carousel -->
+        <div class="overflow-x-auto hide-scrollbar snap-container drag-scroll reveal"
+             id="testimonials-track"
+             style="transition-delay:0.1s;"
+             role="region"
+             aria-label="Client testimonials">
+          <div class="flex gap-5 pb-4" style="width: max-content;">
+
+            <!-- Testimonial 1 -->
+            <blockquote id="testimonial-1" class="glass-card rounded-3xl p-7 snap-child flex flex-col gap-5"
+                        style="width: min(380px, 85vw);">
+              <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+              <p class="text-white/70 text-sm leading-relaxed -mt-6">
+                Praveen delivered a complete web application from scratch in under three weeks. The codebase was clean,
+                well-documented, and deployed without a single hiccup. Exactly what we needed — no fluff, no delays.
+              </p>
+              <footer class="mt-auto pt-4 border-t border-white/8 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+                  <span class="text-white text-xs font-bold">AK</span>
+                </div>
+                <div>
+                  <cite class="text-white font-semibold text-sm not-italic">Arjun Kapoor</cite>
+                  <p class="text-white/40 text-xs">Co-founder, DataNest Labs</p>
+                </div>
+                <div class="ml-auto flex gap-0.5">
+                  <span class="text-brand-400 text-sm" aria-label="5 out of 5 stars">★★★★★</span>
+                </div>
+              </footer>
+            </blockquote>
+
+            <!-- Testimonial 2 -->
+            <blockquote id="testimonial-2" class="glass-card rounded-3xl p-7 snap-child flex flex-col gap-5"
+                        style="width: min(380px, 85vw);">
+              <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+              <p class="text-white/70 text-sm leading-relaxed -mt-6">
+                We hired Praveen specifically for his Python automation work and were blown away by the results. The script
+                he built cut our weekly reporting time by 80%. He understood our operational constraints immediately and
+                built something that just works.
+              </p>
+              <footer class="mt-auto pt-4 border-t border-white/8 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0">
+                  <span class="text-white text-xs font-bold">SR</span>
+                </div>
+                <div>
+                  <cite class="text-white font-semibold text-sm not-italic">Sneha Reddy</cite>
+                  <p class="text-white/40 text-xs">Operations Lead, Meridian Logistics</p>
+                </div>
+                <div class="ml-auto flex gap-0.5">
+                  <span class="text-brand-400 text-sm" aria-label="5 out of 5 stars">★★★★★</span>
+                </div>
+              </footer>
+            </blockquote>
+
+            <!-- Testimonial 3 -->
+            <blockquote id="testimonial-3" class="glass-card rounded-3xl p-7 snap-child flex flex-col gap-5"
+                        style="width: min(380px, 85vw);">
+              <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+              <p class="text-white/70 text-sm leading-relaxed -mt-6">
+                What stood out was that Praveen didn't just write code — he thought about the brand. Our website looked
+                incredible on launch day, and the video content his team produced gave us a real market presence. He's
+                a genuinely rare combination of technical skill and design sensibility.
+              </p>
+              <footer class="mt-auto pt-4 border-t border-white/8 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                  <span class="text-white text-xs font-bold">MV</span>
+                </div>
+                <div>
+                  <cite class="text-white font-semibold text-sm not-italic">Maya Venkatesh</cite>
+                  <p class="text-white/40 text-xs">Founder, Calla Collective</p>
+                </div>
+                <div class="ml-auto flex gap-0.5">
+                  <span class="text-brand-400 text-sm" aria-label="5 out of 5 stars">★★★★★</span>
+                </div>
+              </footer>
+            </blockquote>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT BENTO SECTION
+    ============================================================ -->
+    <section id="contact" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-14 reveal gap-4">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Let's Build Something</h2>
+          <p class="text-white/50 max-w-md text-base leading-relaxed">
+            Have a project in mind? Reach out on any platform — I respond within 24 hours.
+          </p>
+        </div>
+
+        <!-- Contact Bento Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal max-w-3xl mx-auto" style="transition-delay:0.1s;">
+
+          <!-- Instagram -->
+          <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer"
+             id="contact-instagram"
+             class="contact-card glass-card rounded-3xl p-6 flex flex-col items-center justify-center gap-4 min-h-[160px]
+                    hover:bg-pink-500/10 hover:border-pink-500/25 hover:shadow-[0_0_40px_rgba(236,72,153,0.2)] group"
+             aria-label="Follow on Instagram">
+            <div class="icon-wrap">
+              <svg class="w-8 h-8 text-pink-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <span class="text-white/60 text-sm font-medium group-hover:text-pink-300 transition-colors">Instagram</span>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+             id="contact-github"
+             class="contact-card glass-card rounded-3xl p-6 flex flex-col items-center justify-center gap-4 min-h-[160px]
+                    hover:bg-white/8 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.08)] group"
+             aria-label="View GitHub profile">
+            <div class="icon-wrap">
+              <svg class="w-8 h-8 text-white/70" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </div>
+            <span class="text-white/60 text-sm font-medium group-hover:text-white transition-colors">GitHub</span>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"
+             id="contact-linkedin"
+             class="contact-card glass-card rounded-3xl p-6 flex flex-col items-center justify-center gap-4 min-h-[160px]
+                    hover:bg-blue-500/10 hover:border-blue-500/25 hover:shadow-[0_0_40px_rgba(59,130,246,0.2)] group"
+             aria-label="Connect on LinkedIn">
+            <div class="icon-wrap">
+              <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+            <span class="text-white/60 text-sm font-medium group-hover:text-blue-300 transition-colors">LinkedIn</span>
+          </a>
+
+          <!-- Gmail -->
+          <a href="mailto:praveen@example.com"
+             id="contact-gmail"
+             class="contact-card glass-card rounded-3xl p-6 flex flex-col items-center justify-center gap-4 min-h-[160px]
+                    hover:bg-red-500/10 hover:border-red-500/25 hover:shadow-[0_0_40px_rgba(239,68,68,0.2)] group"
+             aria-label="Send an email">
+            <div class="icon-wrap">
+              <svg class="w-8 h-8 text-red-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+              </svg>
+            </div>
+            <span class="text-white/60 text-sm font-medium group-hover:text-red-300 transition-colors">Gmail</span>
+          </a>
+
+        </div>
+
+        <!-- Bottom CTA Strip -->
+        <div class="mt-12 glass-card rounded-3xl p-8 reveal max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6" style="transition-delay:0.2s;" id="contact-cta-strip">
+          <div>
+            <h3 class="font-display font-bold text-white text-xl">Ready to start your project?</h3>
+            <p class="text-white/45 text-sm mt-1">Let's talk about what you're building and how I can help ship it.</p>
+          </div>
+          <a href="mailto:praveen@example.com"
+             id="contact-email-cta"
+             class="flex-shrink-0 inline-flex items-center gap-2.5 font-semibold text-white px-7 py-3.5 rounded-full cta-btn shadow-xl text-sm whitespace-nowrap">
+            Send a Message
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.269 20.876L5.999 12zm0 0h7.5"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+  ================================================================ -->
+  <footer class="border-t border-white/5 py-10 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-display font-bold gradient-text text-lg select-none">PY<span class="text-white/30">.</span></p>
+      <p class="text-white/30 text-xs text-center">
+        &copy; <span id="year"></span> Praveen Yalagandula. Crafted with precision &amp; AI-augmented engineering.
+      </p>
+      <div class="flex gap-5 text-white/30 text-xs">
+        <a href="#hero" class="hover:text-white/60 transition-colors">Top</a>
+        <a href="#services" class="hover:text-white/60 transition-colors">Services</a>
+        <a href="#contact" class="hover:text-white/60 transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       INLINE STYLE UTILITIES (badge variants)
+  ================================================================ -->
+  <style>
+    .tech-badge {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 500;
+      padding: 0.2rem 0.6rem; border-radius: 9999px;
+      background: rgba(92,124,250,0.12); color: #91a7ff;
+      border: 1px solid rgba(92,124,250,0.2);
+    }
+    .tech-badge-purple {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 500;
+      padding: 0.2rem 0.6rem; border-radius: 9999px;
+      background: rgba(217,70,239,0.12); color: #e879f9;
+      border: 1px solid rgba(217,70,239,0.2);
+    }
+    .tech-badge-teal {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 500;
+      padding: 0.2rem 0.6rem; border-radius: 9999px;
+      background: rgba(20,184,166,0.12); color: #2dd4bf;
+      border: 1px solid rgba(20,184,166,0.2);
+    }
+    .tech-badge-orange {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 500;
+      padding: 0.2rem 0.6rem; border-radius: 9999px;
+      background: rgba(249,115,22,0.12); color: #fb923c;
+      border: 1px solid rgba(249,115,22,0.2);
+    }
+    .tech-badge-sky {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 500;
+      padding: 0.2rem 0.6rem; border-radius: 9999px;
+      background: rgba(14,165,233,0.12); color: #38bdf8;
+      border: 1px solid rgba(14,165,233,0.2);
+    }
+  </style>
+
+  <!-- App JS -->
+  <script src="app.js" defer></script>
+</body>
+</html>

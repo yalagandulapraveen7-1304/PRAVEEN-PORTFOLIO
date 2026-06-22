@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Praveen Yalagandula | Full-Stack Developer &amp; AI-Augmented Engineer</title>
+  <meta name="description" content="Praveen Yalagandula - Full-Stack Developer combining modern web engineering with AI-driven iteration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter","system-ui","sans-serif"], display: ["Space Grotesk","Inter","sans-serif"] },
+          colors: {
+            brand: {50:"#f0f4ff",100:"#dbe4ff",200:"#bac8ff",300:"#91a7ff",400:"#748ffc",500:"#5c7cfa",600:"#4c6ef5",700:"#4263eb",800:"#3b5bdb",900:"#364fc7"},
+            accent: {400:"#e879f9",500:"#d946ef",600:"#c026d3"}
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-family:"Inter",system-ui,sans-serif}
+    body{background-color:#070712;color:#e2e8f0;overflow-x:hidden}
+    .hide-scrollbar::-webkit-scrollbar{display:none}
+    .hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+    .hero-bg-gradient{background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(92,124,250,.18) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(217,70,239,.10) 0%,transparent 60%),#070712}
+    .noise::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.04}
+    .glass-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all .35s cubic-bezier(.4,0,.2,1)}
+    .glass-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);transform:translateY(-2px);box-shadow:0 20px 60px -10px rgba(0,0,0,.5),0 0 0 1px rgba(92,124,250,.12)}
+    .service-card{position:relative;overflow:hidden}
+    .service-card::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;transition:opacity .4s ease;pointer-events:none}
+    .service-card:hover::before{opacity:1}
+    .service-card-blue::before{background:radial-gradient(circle at 30% 30%,rgba(92,124,250,.15),transparent 60%)}
+    .service-card-purple::before{background:radial-gradient(circle at 70% 30%,rgba(217,70,239,.15),transparent 60%)}
+    .service-card-teal::before{background:radial-gradient(circle at 50% 80%,rgba(20,184,166,.15),transparent 60%)}
+    .gradient-text{background:linear-gradient(135deg,#fff 0%,#bac8ff 40%,#e879f9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .gradient-text-blue{background:linear-gradient(135deg,#748ffc,#5c7cfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .cta-btn{background:linear-gradient(135deg,#4c6ef5 0%,#d946ef 100%);background-size:200% 200%;animation:gradientShift 4s ease infinite;transition:all .3s ease}
+    .cta-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 40px rgba(92,124,250,.5),0 0 80px rgba(217,70,239,.2)}
+    @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    #gallery-track .project-card{transition:transform .35s cubic-bezier(.4,0,.2,1),filter .35s ease,opacity .35s ease,box-shadow .35s ease}
+    #gallery-track.has-hover .project-card{filter:brightness(.55) saturate(.6);opacity:.75}
+    #gallery-track.has-hover .project-card:hover{filter:brightness(1) saturate(1);opacity:1;transform:scale(1.03);box-shadow:0 0 50px rgba(92,124,250,.35),0 25px 50px -15px rgba(0,0,0,.7);z-index:10}
+    .contact-card{transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .contact-card .icon-wrap{transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+    .contact-card:hover .icon-wrap{transform:scale(1.2) rotate(8deg)}
+    .quote-mark{font-size:3.5rem;line-height:.8;font-family:"Georgia",serif;color:rgba(92,124,250,.25)}
+    .drag-scroll{cursor:grab;user-select:none}
+    .drag-scroll.is-dragging{cursor:grabbing}
+    .section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#748ffc;padding:.35rem .9rem;border:1px solid rgba(116,143,252,.25);border-radius:9999px;background:rgba(116,143,252,.08)}
+    /* Gallery grid - responsive */
+    .gallery-grid{display:grid;grid-template-rows:repeat(2,200px);grid-auto-flow:column;grid-auto-columns:260px;gap:.875rem}
+    @media(min-width:640px){.gallery-grid{grid-template-rows:repeat(2,230px);grid-auto-columns:300px}}
+    @media(min-width:768px){.gallery-grid{grid-template-rows:repeat(2,260px);grid-auto-columns:340px}}
+    .snap-container{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+    .snap-child{scroll-snap-align:start}
+    .grid-lines{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
+    .float-anim{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    nav{background:rgba(7,7,18,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    /* Tech Badges */
+    .tech-badge,.tech-badge-purple,.tech-badge-teal,.tech-badge-orange,.tech-badge-sky{display:inline-block;font-size:.7rem;padding:.25rem .65rem;border-radius:9999px;white-space:nowrap}
+    .tech-badge{background:rgba(116,143,252,.1);color:#91a7ff;border:1px solid rgba(116,143,252,.2)}
+    .tech-badge-purple{background:rgba(217,70,239,.1);color:#e879f9;border:1px solid rgba(217,70,239,.2)}
+    .tech-badge-teal{background:rgba(20,184,166,.1);color:#2dd4bf;border:1px solid rgba(20,184,166,.2)}
+    .tech-badge-orange{background:rgba(249,115,22,.1);color:#fb923c;border:1px solid rgba(249,115,22,.2)}
+    .tech-badge-sky{background:rgba(14,165,233,.1);color:#38bdf8;border:1px solid rgba(14,165,233,.2)}
+    /* Bio avatar */
+    .bio-avatar{width:clamp(72px,22vw,160px);height:auto;flex-shrink:0}
+    /* Fix orb overflow on mobile */
+    .orb-clip{overflow:hidden}
+    /* === RESPONSIVE FIXES === */
+    @media(max-width:639px){
+      /* Bio card: stack avatar + text on mobile */
+      .bio-avatar-row{flex-direction:column;align-items:center;text-align:center}
+      .bio-badge-row{justify-content:center}
+      /* Stats bar: 2-col grid on mobile */
+      .stats-bar{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+      .stats-divider{display:none!important}
+      /* Hero CTA full width on very small */
+      .hero-cta-group a:first-child{width:100%;justify-content:center}
+    }
+    @media(max-width:380px){
+      .hero-cta-group{flex-direction:column;align-items:stretch}
+    }
+  </style>
+</head>
+<body class="noise min-h-screen antialiased">
+<script src="app.js"></script>
+<!-- NAV -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="#hero" id="nav-logo" class="font-display font-bold text-lg tracking-tight gradient-text select-none">Praveen YalagandulA<span class="text-white/30">.</span></a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/50">
+      <a href="#services"     class="hover:text-white transition-colors duration-200">Services</a>
+      <a href="#gallery"      class="hover:text-white transition-colors duration-200">Work</a>
+      <a href="#testimonials" class="hover:text-white transition-colors duration-200">Testimonials</a>
+      <a href="#contact"      class="hover:text-white transition-colors duration-200">Contact</a>
+    </div>
+    <a href="#contact" id="nav-cta" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-full cta-btn shadow-lg">
+      Let's Build
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+    </a>
+    <button id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors">
+      <span class="w-5 h-0.5 bg-white/70 rounded transition-all duration-300 block"></span>
+      <span class="w-5 h-0.5 bg-white/70 rounded transition-all duration-300 block"></span>
+      <span class="w-3.5 h-0.5 bg-white/70 rounded transition-all duration-300 block"></span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+    <div class="px-4 pb-6 flex flex-col gap-4 border-t border-white/5 pt-4">
+      <a href="#services"     class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Services</a>
+      <a href="#gallery"      class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Work</a>
+      <a href="#testimonials" class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Testimonials</a>
+      <a href="#contact"      class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Contact</a>
+      <a href="#contact"      class="mobile-nav-link inline-flex justify-center items-center gap-2 text-sm font-semibold text-white px-5 py-3 rounded-full cta-btn mt-2">Let's Build &#x2192;</a>
+    </div>
+  </div>
+</nav>
+
+<main class="relative z-10">
+
+<!-- HERO -->
+<section id="hero" class="relative hero-bg-gradient grid-lines min-h-screen flex items-center pt-16 orb-clip">
+  <div class="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none float-anim"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none float-anim" style="animation-delay:-3s"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 w-full">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+
+      <!-- Copy -->
+      <div class="flex flex-col gap-6 sm:gap-7 reveal">
+        <span class="section-label w-fit">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+          Available for Projects
+        </span>
+        <h1 class="font-display font-extrabold leading-[1.08] tracking-tight">
+          <span class="gradient-text block text-3xl sm:text-5xl lg:text-6xl">Praveen Yalagandula</span>
+          <span class="text-white/90 block text-2xl sm:text-4xl lg:text-5xl mt-1">Full-Stack Development,</span>
+          <span class="gradient-text-blue block text-2xl sm:text-4xl lg:text-5xl">Accelerated by AI</span>
+        </h1>
+        <p class="text-white/60 text-base sm:text-lg leading-relaxed max-w-xl">
+          I design, build, and ship complete digital products combining modern web engineering with rapid, AI-driven iteration and a dedicated design team.
+        </p>
+        <div class="hero-cta-group flex flex-wrap gap-3 sm:gap-4 items-center">
+          <a href="#contact" id="hero-cta" class="inline-flex items-center justify-center gap-2.5 font-semibold text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full cta-btn shadow-xl text-sm">
+            Start a Project
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="#gallery" id="hero-see-work" class="inline-flex items-center gap-2 text-sm font-medium text-white/60 hover:text-white transition-colors group">
+            View My Work
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </a>
+        </div>
+        <!-- Stats Bar -->
+        <div class="stats-bar flex flex-wrap gap-x-6 gap-y-4 pt-4 border-t border-white/[0.08]">
+          <div class="flex flex-col gap-0.5">
+            <span class="text-xl sm:text-2xl font-bold font-display gradient-text-blue">4+</span>
+            <span class="text-xs text-white/40 uppercase tracking-widest">Years Building</span>
+          </div>
+          <div class="stats-divider w-px bg-white/10 self-stretch hidden sm:block"></div>
+          <div class="flex flex-col gap-0.5">
+            <span class="text-xl sm:text-2xl font-bold font-display gradient-text-blue">Full-Stack</span>
+            <span class="text-xs text-white/40 uppercase tracking-widest">End-to-End</span>
+          </div>
+          <div class="stats-divider w-px bg-white/10 self-stretch hidden sm:block"></div>
+          <div class="flex flex-col gap-0.5">
+            <span class="text-xl sm:text-2xl font-bold font-display gradient-text-blue">AI-First</span>
+            <span class="text-xs text-white/40 uppercase tracking-widest">Workflow</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio Card -->
+      <div class="flex flex-col gap-6 reveal" style="transition-delay:.2s">
+        <article id="bio-card" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+          <div class="bio-avatar-row flex flex-row items-start gap-4 mb-6">
+            <div class="bio-avatar p-0.5 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
+              <img class="rounded-full w-full h-full object-cover" src="WhatsApp Image 2026-06-21 at 6.26.55 PM.jpeg" alt="Praveen Yalagandula"
+                onerror="this.style.display='none';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.innerHTML='<span style=color:white;font-weight:700;font-size:1.5rem>PY</span>'" />
+            </div>
+            <div class="flex flex-col gap-1.5 min-w-0">
+              <h2 class="font-display font-bold text-white text-xl sm:text-3xl leading-tight">Praveen Yalagandula</h2>
+              <p class="text-white/40 text-xs sm:text-sm">IT Specialist &amp; Full-Stack Developer</p>
+              <div class="bio-badge-row flex flex-wrap gap-1.5 mt-0.5">
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/20">C</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/20">Python</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/20">AI-Augmented</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-white/60 text-sm sm:text-base leading-relaxed">
+            Praveen is an IT specialist and full-stack developer with a foundation in systems-level programming <span class="text-white/80">(C, Python)</span> and modern web technologies. His work spans the entire product lifecycle from database architecture to full deployment with an <span class="text-white/80">efficiency-first</span> approach.
+          </p>
+          <p class="text-white/60 text-sm sm:text-base leading-relaxed mt-3">
+            By integrating <span class="text-blue-400">AI-augmented development practices</span>, he delivers production-ready software faster without compromising structure or scalability.
+          </p>
+          <div class="mt-5 pt-4 border-t border-white/[0.08]">
+            <p class="text-[0.65rem] text-white/30 uppercase tracking-widest mb-3">Tech Foundation</p>
+            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+              <span class="tech-badge">C / C++</span>
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">SQL</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">Linux</span>
+              <span class="tech-badge">Docker</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-16 sm:py-24 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col items-center text-center mb-12 sm:mb-16 reveal gap-4">
+      <span class="section-label">What I Do</span>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Services Built for Outcomes</h2>
+      <p class="text-white/50 max-w-lg text-sm sm:text-base leading-relaxed">Every engagement is designed around shipping real, functional products, not just code.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 reveal" style="transition-delay:.1s">
+
+      <article id="service-fullstack" class="glass-card service-card service-card-blue rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[280px] sm:min-h-[320px] group">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-500/20 border border-blue-500/25 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300 flex-shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/></svg>
+        </div>
+        <div class="flex flex-col gap-2 flex-1">
+          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Full-Stack Web Development</h3>
+          <p class="text-white/55 text-sm leading-relaxed">End-to-end web application development backed by robust databases. From initial build to full deployment, I deliver fast, scalable products designed to go live without friction.</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-white/[0.08]">
+          <span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">Docker</span>
+        </div>
+      </article>
+
+      <article id="service-software" class="glass-card service-card service-card-purple rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[280px] sm:min-h-[320px] group">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-purple-500/20 border border-purple-500/25 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300 flex-shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+        </div>
+        <div class="flex flex-col gap-2 flex-1">
+          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Custom Software &amp; Scripts</h3>
+          <p class="text-white/55 text-sm leading-relaxed">Tailored solutions built in C and Python from performance-critical applications to automation scripts that solve specific operational problems. Practical, efficient code.</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-white/[0.08]">
+          <span class="tech-badge-purple">C / C++</span><span class="tech-badge-purple">Python</span><span class="tech-badge-purple">Automation</span><span class="tech-badge-purple">CLI Tools</span>
+        </div>
+      </article>
+
+      <article id="service-branding" class="glass-card service-card service-card-teal rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[280px] sm:min-h-[320px] group sm:col-span-2 lg:col-span-1">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-teal-500/20 border border-teal-500/25 flex items-center justify-center group-hover:bg-teal-500/30 transition-colors duration-300 flex-shrink-0">
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+        </div>
+        <div class="flex flex-col gap-2 flex-1">
+          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Digital Branding</h3>
+          <p class="text-white/55 text-sm leading-relaxed">A complete digital identity. My in-house design and video editing team handles UI/UX and visual storytelling, ensuring what I build looks and feels as strong as it performs.</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-white/[0.08]">
+          <span class="tech-badge-teal">UI/UX Design</span><span class="tech-badge-teal">Video Editing</span><span class="tech-badge-teal">Brand Identity</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-10 reveal">
+    <div class="flex items-end justify-between gap-4">
+      <div class="flex flex-col gap-3 sm:gap-4">
+        <span class="section-label w-fit">Selected Work</span>
+        <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Products Shipped</h2>
+      </div>
+      <p class="text-white/40 text-xs sm:text-sm text-right hidden sm:block max-w-xs leading-relaxed">Drag to explore or swipe on mobile</p>
+    </div>
+  </div>
+  <div class="overflow-x-auto hide-scrollbar snap-container drag-scroll reveal px-4 sm:px-6" id="gallery-track" style="transition-delay:.15s" role="region" aria-label="Project gallery">
+    <div class="gallery-grid pb-4" style="min-width:max-content">
+
+      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-1">
+        <div class="w-full h-full bg-gradient-to-br from-blue-900/60 to-blue-700/20 p-4 sm:p-5 flex flex-col justify-between relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/5"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between"><span class="tech-badge">Web App</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
+            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">SaaS Dashboard Platform</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Full-stack analytics dashboard with real-time data, role-based auth, and PostgreSQL backend.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-2">
+        <div class="w-full h-full bg-gradient-to-br from-purple-900/60 to-pink-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/5"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between"><span class="tech-badge-purple">Python</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
+            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">Automated Data Pipeline</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Python ETL pipeline automating ingestion, transformation, and reporting for 500K+ daily records.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-3">
+        <div class="w-full h-full bg-gradient-to-br from-teal-900/60 to-emerald-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-emerald-500/5"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between"><span class="tech-badge-teal">Branding</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
+            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">E-Commerce Brand Launch</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Complete digital identity including store, UI/UX design, video ads, and social media kit.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-4">
+        <div class="w-full h-full bg-gradient-to-br from-orange-900/60 to-rose-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-rose-500/5"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between"><span class="tech-badge-orange">C System</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
+            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">High-Performance CLI Tool</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">C-based system utility for log parsing and alerting, processing millions of lines per second.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-5">
+        <div class="w-full h-full bg-gradient-to-br from-sky-900/60 to-cyan-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-cyan-500/5"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between"><span class="tech-badge-sky">AI Tool</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
+            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">AI-Powered Content Engine</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Python + LLM integration for automated content generation, editing, and publishing workflow.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-6">
+        <div class="w-full h-full bg-gradient-to-br from-fuchsia-900/60 to-violet-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/10 to-violet-500/5"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between"><span class="tech-badge-purple">Full-Stack</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
+            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">Multi-Tenant CRM App</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Deployed CRM with multi-tenant architecture, secure auth, billing integration, and custom reporting.</p></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-16 sm:py-24 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col items-center text-center mb-10 sm:mb-14 reveal gap-4">
+      <span class="section-label">Testimonials</span>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Clients, on the Record</h2>
+    </div>
+    <div class="overflow-x-auto hide-scrollbar snap-container drag-scroll reveal -mx-4 sm:-mx-6 px-4 sm:px-6" id="testimonials-track" style="transition-delay:.1s" role="region" aria-label="Client testimonials">
+      <div class="flex gap-4 sm:gap-5 pb-4" style="width:max-content">
+
+        <blockquote id="testimonial-1" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 snap-child flex flex-col gap-4 sm:gap-5" style="width:min(340px,85vw)">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="text-white/70 text-sm leading-relaxed -mt-4">Praveen delivered a complete web application from scratch in under three weeks. The codebase was clean, well-documented, and deployed without a single hiccup. Exactly what we needed.</p>
+          <footer class="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">AK</span></div>
+            <div class="min-w-0"><cite class="text-white font-semibold text-sm not-italic block">Arjun Kapoor</cite><p class="text-white/40 text-xs truncate">Co-founder, DataNest Labs</p></div>
+            <div class="ml-auto flex-shrink-0"><span class="text-blue-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          </footer>
+        </blockquote>
+
+        <blockquote id="testimonial-2" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 snap-child flex flex-col gap-4 sm:gap-5" style="width:min(340px,85vw)">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="text-white/70 text-sm leading-relaxed -mt-4">We hired Praveen for Python automation and were blown away. The script he built cut our weekly reporting time by 80%. He understood our constraints immediately and built something that just works.</p>
+          <footer class="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">SR</span></div>
+            <div class="min-w-0"><cite class="text-white font-semibold text-sm not-italic block">Sneha Reddy</cite><p class="text-white/40 text-xs truncate">Operations Lead, Meridian Logistics</p></div>
+            <div class="ml-auto flex-shrink-0"><span class="text-blue-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          </footer>
+        </blockquote>
+
+        <blockquote id="testimonial-3" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 snap-child flex flex-col gap-4 sm:gap-5" style="width:min(340px,85vw)">
+          <div class="quote-mark">&ldquo;</div>
+          <p class="text-white/70 text-sm leading-relaxed -mt-4">What stood out was that Praveen didn't just write code, he thought about the brand. Our website looked incredible on launch day and the video content gave us a real market presence.</p>
+          <footer class="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">MV</span></div>
+            <div class="min-w-0"><cite class="text-white font-semibold text-sm not-italic block">Maya Venkatesh</cite><p class="text-white/40 text-xs truncate">Founder, Calla Collective</p></div>
+            <div class="ml-auto flex-shrink-0"><span class="text-blue-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          </footer>
+        </blockquote>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-16 sm:py-24 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col items-center text-center mb-10 sm:mb-14 reveal gap-4">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Let's Build Something</h2>
+      <p class="text-white/50 max-w-md text-sm sm:text-base leading-relaxed">Have a project in mind? Reach out on any platform, I respond within 24 hours.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 reveal max-w-3xl mx-auto" style="transition-delay:.1s">
+
+      <a href="https://instagram.com/praveen_yalagandula_0413" target="_blank" rel="noopener noreferrer" id="contact-instagram"
+         class="contact-card glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center gap-3 sm:gap-4 min-h-[130px] sm:min-h-[160px] hover:bg-pink-500/10 hover:border-pink-500/25 group" aria-label="Follow on Instagram">
+        <div class="icon-wrap"><svg class="w-7 h-7 sm:w-8 sm:h-8 text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="text-white/60 text-xs sm:text-sm font-medium group-hover:text-pink-300 transition-colors">Instagram</span>
+      </a>
+
+      <a href="https://github.com/yalagandulapraveen7-1304" target="_blank" rel="noopener noreferrer" id="contact-github"
+         class="contact-card glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center gap-3 sm:gap-4 min-h-[130px] sm:min-h-[160px] hover:bg-white/[0.08] hover:border-white/20 group" aria-label="View GitHub profile">
+        <div class="icon-wrap"><svg class="w-7 h-7 sm:w-8 sm:h-8 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+        <span class="text-white/60 text-xs sm:text-sm font-medium group-hover:text-white transition-colors">GitHub</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/praveen-yalagandula-ab59553a9/" target="_blank" rel="noopener noreferrer" id="contact-linkedin"
+         class="contact-card glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center gap-3 sm:gap-4 min-h-[130px] sm:min-h-[160px] hover:bg-blue-500/10 hover:border-blue-500/25 group" aria-label="Connect on LinkedIn">
+        <div class="icon-wrap"><svg class="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <span class="text-white/60 text-xs sm:text-sm font-medium group-hover:text-blue-300 transition-colors">LinkedIn</span>
+      </a>
+
+      <a href="mailto:prempraveen70@gmail.com" id="contact-gmail"
+         class="contact-card glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center gap-3 sm:gap-4 min-h-[130px] sm:min-h-[160px] hover:bg-red-500/10 hover:border-red-500/25 group" aria-label="Send an email">
+        <div class="icon-wrap"><svg class="w-7 h-7 sm:w-8 sm:h-8 text-red-400" fill="currentColor" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.642l8.073-6.149C21.692 2.28 24 3.434 24 5.457z"/></svg></div>
+        <span class="text-white/60 text-xs sm:text-sm font-medium group-hover:text-red-300 transition-colors">Email</span>
+      </a>
+
+    </div>
+
+    <div class="mt-6 sm:mt-8 max-w-3xl mx-auto reveal" style="transition-delay:.2s">
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+        <div>
+          <h3 class="font-display font-semibold text-white text-lg sm:text-xl">Ready to start a project?</h3>
+          <p class="text-white/45 text-sm mt-1">Let's talk scope, timeline, and budget. No commitment required.</p>
+        </div>
+        <a href="mailto:prempraveen70@gmail.com" class="inline-flex items-center gap-2.5 font-semibold text-white px-6 py-3 rounded-full cta-btn shadow-xl text-sm whitespace-nowrap flex-shrink-0">
+          Send a Message
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/[0.06] py-8 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+    <span class="font-display font-bold gradient-text text-lg">Praveen Yalagandula<span class="text-white/30">.</span></span>
+    <p class="text-white/30 text-xs sm:text-sm">&#169; 2026 Praveen Yalagandula. All rights reserved.</p>
+    <div class="flex gap-5 text-xs text-white/30">
+      <a href="#services" class="hover:text-white/60 transition-colors">Services</a>
+      <a href="#gallery"  class="hover:text-white/60 transition-colors">Work</a>
+      <a href="#contact"  class="hover:text-white/60 transition-colors">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu    = document.getElementById('mobile-menu');
+  const menuSpans     = mobileMenuBtn.querySelectorAll('span');
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+    if (isOpen) {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenuBtn.setAttribute('aria-expanded','false');
+      menuSpans[0].style.transform=''; menuSpans[1].style.opacity=''; menuSpans[2].style.transform=''; menuSpans[2].style.width='';
+    } else {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenuBtn.setAttribute('aria-expanded','true');
+      menuSpans[0].style.transform='rotate(45deg) translate(5px,5px)';
+      menuSpans[1].style.opacity='0';
+      menuSpans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+      menuSpans[2].style.width='1.25rem';
+    }
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenuBtn.setAttribute('aria-expanded','false');
+      menuSpans[0].style.transform=''; menuSpans[1].style.opacity=''; menuSpans[2].style.transform=''; menuSpans[2].style.width='';
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Drag-to-scroll
+  function makeDraggable(el) {
+    if (!el) return;
+    let down=false, startX, scrollLeft;
+    el.addEventListener('mousedown', e => { down=true; el.classList.add('is-dragging'); startX=e.pageX-el.offsetLeft; scrollLeft=el.scrollLeft; });
+    el.addEventListener('mouseleave',()=>{ down=false; el.classList.remove('is-dragging'); });
+    el.addEventListener('mouseup',  ()=>{ down=false; el.classList.remove('is-dragging'); });
+    el.addEventListener('mousemove', e=>{ if(!down) return; e.preventDefault(); el.scrollLeft = scrollLeft - (e.pageX-el.offsetLeft-startX)*1.5; });
+  }
+  makeDraggable(document.getElementById('gallery-track'));
+ 
+  // Gallery spotlight on hover
+  const gt = document.getElementById('gallery-track');
+  if (gt) { gt.addEventListener('mouseenter',()=>gt.classList.add('has-hover')); gt.addEventListener('mouseleave',()=>gt.classList.remove('has-hover')); }
+
+  // Nav gets more opaque on scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 40 ? 'rgba(7,7,18,0.95)' : 'rgba(7,7,18,0.75)';
+  }, { passive: true });
+</script>
+</body>
+</html>
