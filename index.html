@@ -4,12 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Praveen Yalagandula | Full-Stack Developer &amp; AI-Augmented Engineer</title>
-  <meta name="description" content="Praveen Yalagandula - Full-Stack Developer combining modern web engineering with AI-driven iteration." />
+  <meta name="description" content="Praveen Yalagandula - Full-Stack Developer combining modern web engineering (React, Tailwind, Bootstrap) with computational intelligence (Python, C, SQL, MongoDB)." />
+  <meta name="keywords" content="Praveen Yalagandula, Full-Stack Developer, React, Tailwind CSS, Python, C, MongoDB, SQL, Smart India Hackathon, PolarOPS, MedLens, SSPW" />
+  <meta property="og:title" content="Praveen Yalagandula | Full-Stack Development, Accelerated by AI" />
+  <meta property="og:description" content="I design, build, and ship complete digital products - combining modern web engineering with rapid, AI-driven iteration." />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="shortcut icon" href="WhatsApp Image 2026-06-21 at 6.26.55 PM.jpeg" type="image/jpeg">
+  <script src="app.js" defer></script>
+
   <script>
     tailwind.config = {
       theme: {
@@ -54,10 +61,12 @@
     .drag-scroll{cursor:grab;user-select:none}
     .drag-scroll.is-dragging{cursor:grabbing}
     .section-label{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#748ffc;padding:.35rem .9rem;border:1px solid rgba(116,143,252,.25);border-radius:9999px;background:rgba(116,143,252,.08)}
+    
     /* Gallery grid - responsive */
-    .gallery-grid{display:grid;grid-template-rows:repeat(2,200px);grid-auto-flow:column;grid-auto-columns:260px;gap:.875rem}
-    @media(min-width:640px){.gallery-grid{grid-template-rows:repeat(2,230px);grid-auto-columns:300px}}
-    @media(min-width:768px){.gallery-grid{grid-template-rows:repeat(2,260px);grid-auto-columns:340px}}
+    .gallery-grid{display:grid;grid-template-rows:repeat(2,230px);grid-auto-flow:column;grid-auto-columns:290px;gap:.875rem}
+    @media(min-width:640px){.gallery-grid{grid-template-rows:repeat(2,250px);grid-auto-columns:330px}}
+    @media(min-width:768px){.gallery-grid{grid-template-rows:repeat(2,270px);grid-auto-columns:370px}}
+    
     .snap-container{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
     .snap-child{scroll-snap-align:start}
     .grid-lines{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px}
@@ -66,26 +75,27 @@
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
     nav{background:rgba(7,7,18,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    
     /* Tech Badges */
-    .tech-badge,.tech-badge-purple,.tech-badge-teal,.tech-badge-orange,.tech-badge-sky{display:inline-block;font-size:.7rem;padding:.25rem .65rem;border-radius:9999px;white-space:nowrap}
+    .tech-badge,.tech-badge-purple,.tech-badge-teal,.tech-badge-orange,.tech-badge-sky,.tech-badge-emerald,.tech-badge-rose{display:inline-block;font-size:.7rem;padding:.25rem .65rem;border-radius:9999px;white-space:nowrap}
     .tech-badge{background:rgba(116,143,252,.1);color:#91a7ff;border:1px solid rgba(116,143,252,.2)}
     .tech-badge-purple{background:rgba(217,70,239,.1);color:#e879f9;border:1px solid rgba(217,70,239,.2)}
     .tech-badge-teal{background:rgba(20,184,166,.1);color:#2dd4bf;border:1px solid rgba(20,184,166,.2)}
     .tech-badge-orange{background:rgba(249,115,22,.1);color:#fb923c;border:1px solid rgba(249,115,22,.2)}
     .tech-badge-sky{background:rgba(14,165,233,.1);color:#38bdf8;border:1px solid rgba(14,165,233,.2)}
+    .tech-badge-emerald{background:rgba(16,185,129,.1);color:#34d399;border:1px solid rgba(16,185,129,.2)}
+    .tech-badge-rose{background:rgba(244,63,94,.1);color:#fb7185;border:1px solid rgba(244,63,94,.2)}
+
     /* Bio avatar */
-    .bio-avatar{width:clamp(72px,22vw,160px);height:auto;flex-shrink:0}
-    /* Fix orb overflow on mobile */
+    .bio-avatar{width:clamp(72px,22vw,140px);height:clamp(72px,22vw,140px);flex-shrink:0}
     .orb-clip{overflow:hidden}
+
     /* === RESPONSIVE FIXES === */
     @media(max-width:639px){
-      /* Bio card: stack avatar + text on mobile */
       .bio-avatar-row{flex-direction:column;align-items:center;text-align:center}
       .bio-badge-row{justify-content:center}
-      /* Stats bar: 2-col grid on mobile */
       .stats-bar{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
       .stats-divider{display:none!important}
-      /* Hero CTA full width on very small */
       .hero-cta-group a:first-child{width:100%;justify-content:center}
     }
     @media(max-width:380px){
@@ -94,34 +104,40 @@
   </style>
 </head>
 <body class="noise min-h-screen antialiased">
-<script src="app.js"></script>
+
 <!-- NAV -->
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-white/5">
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <a href="#hero" id="nav-logo" class="font-display font-bold text-lg tracking-tight gradient-text select-none">Praveen YalagandulA<span class="text-white/30">.</span></a>
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/50">
+    <a href="#hero" id="nav-logo" class="font-display font-bold text-lg tracking-tight gradient-text select-none">Praveen Yalagandula<span class="text-white/30">.</span></a>
+    
+    <div class="hidden md:flex items-center gap-7 text-sm font-medium text-white/50">
       <a href="#services"     class="hover:text-white transition-colors duration-200">Services</a>
       <a href="#gallery"      class="hover:text-white transition-colors duration-200">Work</a>
+      <a href="#hackathons"   class="hover:text-white transition-colors duration-200 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Hackathons</a>
       <a href="#testimonials" class="hover:text-white transition-colors duration-200">Testimonials</a>
       <a href="#contact"      class="hover:text-white transition-colors duration-200">Contact</a>
     </div>
+
     <a href="#contact" id="nav-cta" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-full cta-btn shadow-lg">
       Let's Build
       <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
     </a>
+
     <button id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors">
       <span class="w-5 h-0.5 bg-white/70 rounded transition-all duration-300 block"></span>
       <span class="w-5 h-0.5 bg-white/70 rounded transition-all duration-300 block"></span>
       <span class="w-3.5 h-0.5 bg-white/70 rounded transition-all duration-300 block"></span>
     </button>
   </div>
+
   <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
     <div class="px-4 pb-6 flex flex-col gap-4 border-t border-white/5 pt-4">
       <a href="#services"     class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Services</a>
       <a href="#gallery"      class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Work</a>
+      <a href="#hackathons"   class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1 flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Hackathons &amp; Awards</a>
       <a href="#testimonials" class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Testimonials</a>
       <a href="#contact"      class="mobile-nav-link text-white/70 hover:text-white text-sm font-medium transition-colors py-1">Contact</a>
-      <a href="#contact"      class="mobile-nav-link inline-flex justify-center items-center gap-2 text-sm font-semibold text-white px-5 py-3 rounded-full cta-btn mt-2">Let's Build &#x2192;</a>
+      <a href="#contact"      class="mobile-nav-link inline-flex justify-center items-center gap-2 text-sm font-semibold text-white px-5 py-3 rounded-full cta-btn mt-2">Let's Build &rarr;</a>
     </div>
   </div>
 </nav>
@@ -130,24 +146,26 @@
 
 <!-- HERO -->
 <section id="hero" class="relative hero-bg-gradient grid-lines min-h-screen flex items-center pt-16 orb-clip">
-    <video
-        id="hero-video"
-        class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
-        autoplay muted loop playsinline
-        aria-hidden="true"
-      >
-        <source src="From Klickpin.com- 62065301109621143-pin-id-62065301109621143.mp4" type="video/mp4" />
-      </video>
+  <video
+    id="hero-video"
+    class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none"
+    autoplay muted loop playsinline
+    aria-hidden="true"
+  >
+    <source src="From Klickpin.com- 62065301109621143-pin-id-62065301109621143.mp4" type="video/mp4" />
+  </video>
+
   <div class="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none float-anim"></div>
   <div class="absolute bottom-1/4 right-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none float-anim" style="animation-delay:-3s"></div>
+
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 w-full">
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
       <!-- Copy -->
       <div class="flex flex-col gap-6 sm:gap-7 reveal">
         <span class="section-label w-fit">
-          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
-          Available for Projects
+          <svg class="w-3 h-3 text-emerald-400" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+          Available for Projects &amp; Engineering Roles
         </span>
         <h1 class="font-display font-extrabold leading-[1.08] tracking-tight">
           <span class="gradient-text block text-3xl sm:text-5xl lg:text-6xl">Praveen Yalagandula</span>
@@ -155,7 +173,7 @@
           <span class="gradient-text-blue block text-2xl sm:text-4xl lg:text-5xl">Accelerated by AI</span>
         </h1>
         <p class="text-white/60 text-base sm:text-lg leading-relaxed max-w-xl">
-          I design, build, and ship complete digital products combining modern web engineering with rapid, AI-driven iteration and a dedicated design team.
+          I design, build, and ship complete digital products &mdash; combining modern web engineering (<span class="text-white/80">React, Tailwind, Bootstrap</span>) with computational intelligence (<span class="text-white/80">Python, C, SQL, MongoDB</span>).
         </p>
         <div class="hero-cta-group flex flex-wrap gap-3 sm:gap-4 items-center">
           <a href="#contact" id="hero-cta" class="inline-flex items-center justify-center gap-2.5 font-semibold text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full cta-btn shadow-xl text-sm">
@@ -166,22 +184,26 @@
             View My Work
             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
           </a>
+          <a href="#hackathons" class="inline-flex items-center gap-2 text-sm font-medium text-emerald-400/80 hover:text-emerald-300 transition-colors group">
+            Hackathons &amp; Wins
+            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </a>
         </div>
         <!-- Stats Bar -->
         <div class="stats-bar flex flex-wrap gap-x-6 gap-y-4 pt-4 border-t border-white/[0.08]">
           <div class="flex flex-col gap-0.5">
             <span class="text-xl sm:text-2xl font-bold font-display gradient-text-blue">4+</span>
-            <span class="text-xs text-white/40 uppercase tracking-widest">Years Building</span>
+            <span class="text-xs text-white/40 uppercase tracking-widest">Shipped Platforms</span>
+          </div>
+          <div class="stats-divider w-px bg-white/10 self-stretch hidden sm:block"></div>
+          <div class="flex flex-col gap-0.5">
+            <span class="text-xl sm:text-2xl font-bold font-display text-emerald-400">SIH 2026</span>
+            <span class="text-xs text-white/40 uppercase tracking-widest">Hackathon Finalist</span>
           </div>
           <div class="stats-divider w-px bg-white/10 self-stretch hidden sm:block"></div>
           <div class="flex flex-col gap-0.5">
             <span class="text-xl sm:text-2xl font-bold font-display gradient-text-blue">Full-Stack</span>
-            <span class="text-xs text-white/40 uppercase tracking-widest">End-to-End</span>
-          </div>
-          <div class="stats-divider w-px bg-white/10 self-stretch hidden sm:block"></div>
-          <div class="flex flex-col gap-0.5">
-            <span class="text-xl sm:text-2xl font-bold font-display gradient-text-blue">AI-First</span>
-            <span class="text-xs text-white/40 uppercase tracking-widest">Workflow</span>
+            <span class="text-xs text-white/40 uppercase tracking-widest">React · C · Python</span>
           </div>
         </div>
       </div>
@@ -191,36 +213,41 @@
         <article id="bio-card" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden">
           <div class="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
           <div class="bio-avatar-row flex flex-row items-start gap-4 mb-6">
-            <div class="bio-avatar p-0.5 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
+            <div class="bio-avatar p-0.5 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg overflow-hidden">
               <img class="rounded-full w-full h-full object-cover" src="WhatsApp Image 2026-06-21 at 6.26.55 PM.jpeg" alt="Praveen Yalagandula"
                 onerror="this.style.display='none';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.innerHTML='<span style=color:white;font-weight:700;font-size:1.5rem>PY</span>'" />
             </div>
             <div class="flex flex-col gap-1.5 min-w-0">
               <h2 class="font-display font-bold text-white text-xl sm:text-3xl leading-tight">Praveen Yalagandula</h2>
-              <p class="text-white/40 text-xs sm:text-sm">IT Specialist &amp; Full-Stack Developer</p>
+              <p class="text-white/40 text-xs sm:text-sm">Full-Stack Developer &amp; Systems Engineer</p>
               <div class="bio-badge-row flex flex-wrap gap-1.5 mt-0.5">
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/20">C</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/20">Python</span>
-                <span class="text-xs px-2.5 py-0.5 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/20">AI-Augmented</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/20">React</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/20">Python</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-orange-500/15 text-orange-300 border border-orange-500/20">C</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">MongoDB</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-sky-500/15 text-sky-300 border border-sky-500/20">SQL</span>
               </div>
             </div>
           </div>
           <p class="text-white/60 text-sm sm:text-base leading-relaxed">
-            Praveen is an IT specialist and full-stack developer with a foundation in systems-level programming <span class="text-white/80">(C, Python)</span> and modern web technologies. His work spans the entire product lifecycle from database architecture to full deployment with an <span class="text-white/80">efficiency-first</span> approach.
+            Praveen is a full-stack engineer with a core grounding in systems programming <span class="text-white/80">(C, Python)</span> and modern web frameworks <span class="text-white/80">(React, Tailwind, Bootstrap, MongoDB, SQL)</span>. His work spans complete commercial client deployments, civic portals, and high-stakes hackathon innovations.
           </p>
           <p class="text-white/60 text-sm sm:text-base leading-relaxed mt-3">
-            By integrating <span class="text-blue-400">AI-augmented development practices</span>, he delivers production-ready software faster without compromising structure or scalability.
+            By combining <span class="text-blue-400">clean computational architecture</span> with AI-accelerated workflows, he builds and ships robust, responsive products built for real users and critical operational environments.
           </p>
           <div class="mt-5 pt-4 border-t border-white/[0.08]">
-            <p class="text-[0.65rem] text-white/30 uppercase tracking-widest mb-3">Tech Foundation</p>
+            <p class="text-[0.65rem] text-white/30 uppercase tracking-widest mb-3">Core Technical Stack</p>
             <div class="flex flex-wrap gap-1.5 sm:gap-2">
-              <span class="tech-badge">C / C++</span>
-              <span class="tech-badge">Python</span>
-              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+              <span class="tech-badge">JavaScript (ES6+)</span>
+              <span class="tech-badge-sky">React</span>
+              <span class="tech-badge-teal">Tailwind CSS</span>
+              <span class="tech-badge-purple">Bootstrap</span>
+              <span class="tech-badge-orange">Python</span>
+              <span class="tech-badge">C Language</span>
+              <span class="tech-badge-emerald">MongoDB</span>
               <span class="tech-badge">SQL</span>
-              <span class="tech-badge">Node.js</span>
-              <span class="tech-badge">Linux</span>
-              <span class="tech-badge">Docker</span>
             </div>
           </div>
         </article>
@@ -234,48 +261,48 @@
 <section id="services" class="py-16 sm:py-24 px-4 sm:px-6">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col items-center text-center mb-12 sm:mb-16 reveal gap-4">
-      <span class="section-label">What I Do</span>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Services Built for Outcomes</h2>
-      <p class="text-white/50 max-w-lg text-sm sm:text-base leading-relaxed">Every engagement is designed around shipping real, functional products, not just code.</p>
+      <span class="section-label">What I Deliver</span>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Services Built for Real Outcomes</h2>
+      <p class="text-white/50 max-w-lg text-sm sm:text-base leading-relaxed">Every engagement is focused on shipping live, high-performance software that solves operational challenges.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 reveal" style="transition-delay:.1s">
 
-      <article id="service-fullstack" class="glass-card service-card service-card-blue rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[280px] sm:min-h-[320px] group">
+      <article id="service-fullstack" class="glass-card service-card service-card-blue rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[300px] group">
         <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-500/20 border border-blue-500/25 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors duration-300 flex-shrink-0">
           <svg class="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/></svg>
         </div>
         <div class="flex flex-col gap-2 flex-1">
-          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Full-Stack Web Development</h3>
-          <p class="text-white/55 text-sm leading-relaxed">End-to-end web application development backed by robust databases. From initial build to full deployment, I deliver fast, scalable products designed to go live without friction.</p>
+          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Full-Stack Web &amp; Client Portals</h3>
+          <p class="text-white/55 text-sm leading-relaxed">Production-ready web applications, civic information platforms, and client portals built with React, Tailwind, and Bootstrap, supported by relational SQL and MongoDB schemas.</p>
         </div>
         <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-white/[0.08]">
-          <span class="tech-badge">React</span><span class="tech-badge">Node.js</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">Docker</span>
+          <span class="tech-badge">React</span><span class="tech-badge">Tailwind</span><span class="tech-badge">MongoDB</span><span class="tech-badge">SQL</span>
         </div>
       </article>
 
-      <article id="service-software" class="glass-card service-card service-card-purple rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[280px] sm:min-h-[320px] group">
+      <article id="service-software" class="glass-card service-card service-card-purple rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[300px] group">
         <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-purple-500/20 border border-purple-500/25 flex items-center justify-center group-hover:bg-purple-500/30 transition-colors duration-300 flex-shrink-0">
           <svg class="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
         </div>
         <div class="flex flex-col gap-2 flex-1">
-          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Custom Software &amp; Scripts</h3>
-          <p class="text-white/55 text-sm leading-relaxed">Tailored solutions built in C and Python from performance-critical applications to automation scripts that solve specific operational problems. Practical, efficient code.</p>
+          <h3 class="font-display font-semibold text-white text-base sm:text-lg">AI Systems &amp; Energy Telemetry</h3>
+          <p class="text-white/55 text-sm leading-relaxed">Algorithmic linear programming and Python telemetry engines for extreme environments &mdash; such as polar microgrid load-shedding and multi-screen clinical intelligence workflows.</p>
         </div>
         <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-white/[0.08]">
-          <span class="tech-badge-purple">C / C++</span><span class="tech-badge-purple">Python</span><span class="tech-badge-purple">Automation</span><span class="tech-badge-purple">CLI Tools</span>
+          <span class="tech-badge-purple">Python</span><span class="tech-badge-purple">LP Optimizer</span><span class="tech-badge-purple">Telemetry</span><span class="tech-badge-purple">AI Logic</span>
         </div>
       </article>
 
-      <article id="service-branding" class="glass-card service-card service-card-teal rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[280px] sm:min-h-[320px] group sm:col-span-2 lg:col-span-1">
+      <article id="service-branding" class="glass-card service-card service-card-teal rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col gap-5 min-h-[300px] group sm:col-span-2 lg:col-span-1">
         <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-teal-500/20 border border-teal-500/25 flex items-center justify-center group-hover:bg-teal-500/30 transition-colors duration-300 flex-shrink-0">
-          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0017.25 3H6.75A2.25 2.25 0 004.5 5.25v13.5A2.25 2.25 0 006.75 19.5z"/></svg>
         </div>
         <div class="flex flex-col gap-2 flex-1">
-          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Digital Branding</h3>
-          <p class="text-white/55 text-sm leading-relaxed">A complete digital identity. My in-house design and video editing team handles UI/UX and visual storytelling, ensuring what I build looks and feels as strong as it performs.</p>
+          <h3 class="font-display font-semibold text-white text-base sm:text-lg">Systems Engineering &amp; Hardware</h3>
+          <p class="text-white/55 text-sm leading-relaxed">Low-level embedded C solutions, sensor data processing, and hardware-software prototyping validated with collegiate hackathon awards from the Dean of R&amp;D.</p>
         </div>
         <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-4 border-t border-white/[0.08]">
-          <span class="tech-badge-teal">UI/UX Design</span><span class="tech-badge-teal">Video Editing</span><span class="tech-badge-teal">Brand Identity</span>
+          <span class="tech-badge-teal">C Language</span><span class="tech-badge-teal">Embedded</span><span class="tech-badge-teal">IoT Prototyping</span>
         </div>
       </article>
 
@@ -283,81 +310,252 @@
   </div>
 </section>
 
-<!-- GALLERY -->
+<!-- GALLERY (PRODUCTS SHIPPED) -->
 <section id="gallery" class="py-16 sm:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-10 reveal">
     <div class="flex items-end justify-between gap-4">
       <div class="flex flex-col gap-3 sm:gap-4">
         <span class="section-label w-fit">Selected Work</span>
-        <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Products Shipped</h2>
+        <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Live Products Shipped</h2>
       </div>
-      <p class="text-white/40 text-xs sm:text-sm text-right hidden sm:block max-w-xs leading-relaxed">Drag to explore or swipe on mobile</p>
+      <p class="text-white/40 text-xs sm:text-sm text-right hidden sm:block max-w-xs leading-relaxed">Drag horizontally or click cards to launch live deployments</p>
     </div>
   </div>
+
   <div class="overflow-x-auto hide-scrollbar snap-container drag-scroll reveal px-4 sm:px-6" id="gallery-track" style="transition-delay:.15s" role="region" aria-label="Project gallery">
     <div class="gallery-grid pb-4" style="min-width:max-content">
 
-      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-1">
-        <div class="w-full h-full bg-gradient-to-br from-blue-900/60 to-blue-700/20 p-4 sm:p-5 flex flex-col justify-between relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/5"></div>
+      <!-- PROJECT 1: PolarOPS -->
+      <a href="https://polar-136.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group block" id="project-polar">
+        <div class="w-full h-full bg-gradient-to-br from-cyan-950/70 via-blue-900/40 to-slate-900/80 p-5 sm:p-6 flex flex-col justify-between relative border border-cyan-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent pointer-events-none"></div>
           <div class="relative z-10 flex flex-col gap-3 h-full">
-            <div class="flex items-center justify-between"><span class="tech-badge">Web App</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
-            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">SaaS Dashboard Platform</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Full-stack analytics dashboard with real-time data, role-based auth, and PostgreSQL backend.</p></div>
+            <div class="flex items-center justify-between">
+              <span class="tech-badge-sky font-semibold">SIH Hackathon Flagship</span>
+              <svg class="w-4 h-4 text-cyan-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+            </div>
+            <div class="mt-auto">
+              <h3 class="font-display font-bold text-white text-base sm:text-lg leading-tight group-hover:text-cyan-300 transition-colors">NOVARA PolarOPS</h3>
+              <p class="text-white/50 text-xs mt-1.5 leading-relaxed">AI Polar Energy Management System for Antarctic research stations (Maitri). Katabatic wind, bifacial solar, and LP microgrid optimizer.</p>
+              <div class="flex flex-wrap gap-1 mt-3">
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-cyan-200 border border-cyan-500/20">React</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-cyan-200 border border-cyan-500/20">Tailwind</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-cyan-200 border border-cyan-500/20">Telemetry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- PROJECT 2: MedLens -->
+      <a href="https://promptwars-medlife-136.vercel.app/#dashboard-desktop" target="_blank" rel="noopener noreferrer" class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group block" id="project-medlens">
+        <div class="w-full h-full bg-gradient-to-br from-blue-950/70 via-indigo-900/40 to-slate-900/80 p-5 sm:p-6 flex flex-col justify-between relative border border-blue-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between">
+              <span class="tech-badge font-semibold">PromptWars Hackathon</span>
+              <svg class="w-4 h-4 text-blue-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+            </div>
+            <div class="mt-auto">
+              <h3 class="font-display font-bold text-white text-base sm:text-lg leading-tight group-hover:text-blue-300 transition-colors">MedLens Clinical Platform</h3>
+              <p class="text-white/50 text-xs mt-1.5 leading-relaxed">Physician triage dashboard, patient demographic intake stepper, and structured EHR records with complete PRD and design token architecture.</p>
+              <div class="flex flex-wrap gap-1 mt-3">
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-blue-200 border border-blue-500/20">Tailwind CSS</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-blue-200 border border-blue-500/20">JavaScript</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-blue-200 border border-blue-500/20">Clinical Tokens</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- PROJECT 3: SSPW Automotive -->
+      <a href="https://sspw-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group block" id="project-sspw">
+        <div class="w-full h-full bg-gradient-to-br from-amber-950/70 via-orange-950/40 to-slate-900/80 p-5 sm:p-6 flex flex-col justify-between relative border border-orange-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between">
+              <span class="tech-badge-orange font-semibold">Client: Ramagani Santhosh Kumar</span>
+              <svg class="w-4 h-4 text-orange-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+            </div>
+            <div class="mt-auto">
+              <h3 class="font-display font-bold text-white text-base sm:text-lg leading-tight group-hover:text-orange-300 transition-colors">SSPW &mdash; Srinivas Spray Painting Works</h3>
+              <p class="text-white/50 text-xs mt-1.5 leading-relaxed">Commercial auto-restoration website for 20+ year Kothagudem garage. High-conversion before/after cases and instant WhatsApp lead flow.</p>
+              <div class="flex flex-wrap gap-1 mt-3">
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-orange-200 border border-orange-500/20">HTML5/CSS3</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-orange-200 border border-orange-500/20">JavaScript</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-orange-200 border border-orange-500/20">WhatsApp API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- PROJECT 4: Telangana Yoga Association -->
+      <a href="https://telangana-yogasan-portal.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group block" id="project-yoga">
+        <div class="w-full h-full bg-gradient-to-br from-emerald-950/70 via-teal-950/40 to-slate-900/80 p-5 sm:p-6 flex flex-col justify-between relative border border-emerald-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between">
+              <span class="tech-badge-emerald font-semibold">Client / State Sports Body</span>
+              <svg class="w-4 h-4 text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+            </div>
+            <div class="mt-auto">
+              <h3 class="font-display font-bold text-white text-base sm:text-lg leading-tight group-hover:text-emerald-300 transition-colors">Telangana Yoga Association Portal</h3>
+              <p class="text-white/50 text-xs mt-1.5 leading-relaxed">Official State Sports Championship portal serving 33 districts under Sports Authority of Telangana State. Real-time trial notices and Aadhaar compliance rules.</p>
+              <div class="flex flex-wrap gap-1 mt-3">
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-emerald-200 border border-emerald-500/20">Tailwind/CSS</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-emerald-200 border border-emerald-500/20">Civic Architecture</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-emerald-200 border border-emerald-500/20">33 Districts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- PROJECT 5: Smart Systems Sprint -->
+      <div class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group block" id="project-sprint">
+        <div class="w-full h-full bg-gradient-to-br from-purple-950/70 via-fuchsia-950/40 to-slate-900/80 p-5 sm:p-6 flex flex-col justify-between relative border border-purple-500/20">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between">
+              <span class="tech-badge-purple font-semibold">MVSR R&amp;D Dean Award</span>
+              <span class="text-purple-300 text-xs font-semibold">&#9733; Cash Prize</span>
+            </div>
+            <div class="mt-auto">
+              <h3 class="font-display font-bold text-white text-base sm:text-lg leading-tight group-hover:text-purple-300 transition-colors">Smart Systems Sprint &mdash; Autonomous IoT</h3>
+              <p class="text-white/50 text-xs mt-1.5 leading-relaxed">Hardware and embedded C controller for automated smart systems. Honored by Dean of R&amp;D and faculty at MVSR Engineering College.</p>
+              <div class="flex flex-wrap gap-1 mt-3">
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-purple-200 border border-purple-500/20">C Language</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-purple-200 border border-purple-500/20">Embedded Logic</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-purple-200 border border-purple-500/20">Hardware Sensors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 6: Database & Full-Stack Engine -->
+      <div class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group block" id="project-database">
+        <div class="w-full h-full bg-gradient-to-br from-slate-900/90 via-blue-950/50 to-slate-900/90 p-5 sm:p-6 flex flex-col justify-between relative border border-white/10">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col gap-3 h-full">
+            <div class="flex items-center justify-between">
+              <span class="tech-badge font-semibold">Data Architecture</span>
+              <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 5.625c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"/></svg>
+            </div>
+            <div class="mt-auto">
+              <h3 class="font-display font-bold text-white text-base sm:text-lg leading-tight group-hover:text-blue-300 transition-colors">Relational &amp; Document Data Layer</h3>
+              <p class="text-white/50 text-xs mt-1.5 leading-relaxed">MongoDB document collections and relational SQL schemas architected for athlete verification, workshop job records, and telemetry logging.</p>
+              <div class="flex flex-wrap gap-1 mt-3">
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-emerald-300 border border-emerald-500/20">MongoDB</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-blue-300 border border-blue-500/20">SQL</span>
+                <span class="text-[0.65rem] px-2 py-0.5 rounded bg-white/5 text-purple-300 border border-purple-500/20">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HACKATHONS & ACHIEVEMENTS SECTION -->
+<section id="hackathons" class="py-16 sm:py-24 px-4 sm:px-6 bg-white/[0.01]">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col items-center text-center mb-12 sm:mb-16 reveal gap-4">
+      <span class="section-label">Track Record</span>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Hackathon Wins &amp; Engineering Milestones</h2>
+      <p class="text-white/50 max-w-xl text-sm sm:text-base leading-relaxed">Demonstrated resilience, high-speed execution, and system-level depth in competitive national and collegiate hackathons.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch reveal">
+      
+      <!-- Smart India Hackathon Card -->
+      <article class="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col border border-cyan-500/20 group">
+        <div class="relative w-full h-64 sm:h-80 overflow-hidden bg-slate-900">
+          <img src="smart-india-hackathon.jpg" alt="Smart India Hackathon Presentation at MVSR Engineering College" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#070712] via-[#070712]/40 to-transparent"></div>
+          <div class="absolute top-4 left-4">
+            <span class="tech-badge-sky font-semibold shadow-lg">Smart India Hackathon (SIH)</span>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <p class="text-white font-bold text-lg sm:text-xl">AI Polar Energy Management System (PolarOPS)</p>
+            <p class="text-cyan-300 text-xs sm:text-sm mt-0.5">Internal Evaluation Round &bull; MVSR EEE Block</p>
+          </div>
+        </div>
+        <div class="p-6 sm:p-8 flex flex-col gap-4 flex-1">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Presented <strong>Novara PolarOPS</strong> to the expert faculty panel at MVSR Engineering College. Developed an autonomous polar microgrid dispatch optimizer designed to preserve vital life-support power at Indian Antarctic Research Stations (Maitri) during extreme polar vortex storms.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge-purple">Linear Programming</span>
+            <span class="tech-badge-teal">Telemetry Simulation</span>
+          </div>
+          <div class="mt-auto pt-6 border-t border-white/[0.08] flex items-center justify-between">
+            <span class="text-xs text-white/40">Status: Deployed &amp; Evaluated</span>
+            <a href="https://polar-136.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold text-cyan-300 hover:text-cyan-200">
+              Launch Live App &rarr;
+            </a>
           </div>
         </div>
       </article>
 
-      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-2">
-        <div class="w-full h-full bg-gradient-to-br from-purple-900/60 to-pink-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/5"></div>
-          <div class="relative z-10 flex flex-col gap-3 h-full">
-            <div class="flex items-center justify-between"><span class="tech-badge-purple">Python</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
-            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">Automated Data Pipeline</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Python ETL pipeline automating ingestion, transformation, and reporting for 500K+ daily records.</p></div>
+      <!-- Smart Systems Sprint Card -->
+      <article class="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col border border-purple-500/20 group">
+        <div class="relative w-full h-64 sm:h-80 overflow-hidden bg-slate-900">
+          <img src="smart-systems-sprint.jpg" alt="Smart Systems Sprint Award at Dean R&D Office" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#070712] via-[#070712]/40 to-transparent"></div>
+          <div class="absolute top-4 left-4">
+            <span class="tech-badge-purple font-semibold shadow-lg">Collegiate Innovation Sprint</span>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <p class="text-white font-bold text-lg sm:text-xl">Smart Systems Sprint &mdash; Excellence Award</p>
+            <p class="text-purple-300 text-xs sm:text-sm mt-0.5">Awarded by Dean of R&amp;D &bull; MVSR Engineering College</p>
           </div>
         </div>
-      </article>
-
-      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-3">
-        <div class="w-full h-full bg-gradient-to-br from-teal-900/60 to-emerald-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-emerald-500/5"></div>
-          <div class="relative z-10 flex flex-col gap-3 h-full">
-            <div class="flex items-center justify-between"><span class="tech-badge-teal">Branding</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
-            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">E-Commerce Brand Launch</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Complete digital identity including store, UI/UX design, video ads, and social media kit.</p></div>
+        <div class="p-6 sm:p-8 flex flex-col gap-4 flex-1">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Honored with a <strong>Cash Prize and Certificate of Excellence</strong> directly from the Dean of R&amp;D and senior faculty. Built an automated robotics and smart sensor telemetry prototype using embedded C programming and sensor integrations under intense hackathon sprint deadlines.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="tech-badge-orange">C Language</span>
+            <span class="tech-badge-purple">Embedded Controllers</span>
+            <span class="tech-badge-teal">Robotics Prototyping</span>
+            <span class="tech-badge">Cash Prize Winner</span>
           </div>
-        </div>
-      </article>
-
-      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-4">
-        <div class="w-full h-full bg-gradient-to-br from-orange-900/60 to-rose-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-rose-500/5"></div>
-          <div class="relative z-10 flex flex-col gap-3 h-full">
-            <div class="flex items-center justify-between"><span class="tech-badge-orange">C System</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
-            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">High-Performance CLI Tool</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">C-based system utility for log parsing and alerting, processing millions of lines per second.</p></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-5">
-        <div class="w-full h-full bg-gradient-to-br from-sky-900/60 to-cyan-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-sky-500/10 to-cyan-500/5"></div>
-          <div class="relative z-10 flex flex-col gap-3 h-full">
-            <div class="flex items-center justify-between"><span class="tech-badge-sky">AI Tool</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
-            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">AI-Powered Content Engine</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Python + LLM integration for automated content generation, editing, and publishing workflow.</p></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="project-card snap-child glass-card rounded-xl sm:rounded-2xl overflow-hidden group cursor-pointer" id="project-6">
-        <div class="w-full h-full bg-gradient-to-br from-fuchsia-900/60 to-violet-800/20 p-4 sm:p-5 flex flex-col justify-between relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-500/10 to-violet-500/5"></div>
-          <div class="relative z-10 flex flex-col gap-3 h-full">
-            <div class="flex items-center justify-between"><span class="tech-badge-purple">Full-Stack</span><svg class="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg></div>
-            <div class="mt-auto"><h3 class="font-display font-semibold text-white text-sm sm:text-base leading-tight">Multi-Tenant CRM App</h3><p class="text-white/45 text-xs mt-1 leading-relaxed">Deployed CRM with multi-tenant architecture, secure auth, billing integration, and custom reporting.</p></div>
+          <div class="mt-auto pt-6 border-t border-white/[0.08] flex items-center justify-between">
+            <span class="text-xs text-purple-300 font-medium">&#10004; Verified Achievement</span>
+            <span class="text-xs text-white/40">Dean R&amp;D &bull; Nadargul, TS</span>
           </div>
         </div>
       </article>
 
     </div>
+
+    <!-- Extra Hackathon Milestone: PromptWars -->
+    <div class="mt-8 glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-blue-500/20 flex flex-col sm:flex-row items-center justify-between gap-6 reveal">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center flex-shrink-0 text-blue-400 font-bold text-xl">
+          ML
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider">PromptWars Hackathon</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">Full Suite</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mt-1">MedLens &mdash; Clinical Intelligence Platform</h3>
+          <p class="text-white/50 text-xs sm:text-sm mt-0.5">Doctor triage dashboards, intake steppers, and clinical tokens engineered under hackathon constraints.</p>
+        </div>
+      </div>
+      <a href="https://promptwars-medlife-136.vercel.app/#dashboard-desktop" target="_blank" rel="noopener noreferrer" class="cta-btn text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full whitespace-nowrap shadow-lg flex-shrink-0">
+        Explore MedLens Suite &rarr;
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -365,38 +563,58 @@
 <section id="testimonials" class="py-16 sm:py-24 px-4 sm:px-6">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col items-center text-center mb-10 sm:mb-14 reveal gap-4">
-      <span class="section-label">Testimonials</span>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Clients, on the Record</h2>
+      <span class="section-label">Authentic Praise</span>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Clients &amp; Mentors on the Record</h2>
+      <p class="text-white/50 max-w-md text-sm sm:text-base leading-relaxed">Direct feedback from commercial business owners, sports coordinators, and academic mentors.</p>
     </div>
+
     <div class="overflow-x-auto hide-scrollbar snap-container drag-scroll reveal -mx-4 sm:-mx-6 px-4 sm:px-6" id="testimonials-track" style="transition-delay:.1s" role="region" aria-label="Client testimonials">
       <div class="flex gap-4 sm:gap-5 pb-4" style="width:max-content">
 
+        <!-- Client 1: SSPW -->
         <blockquote id="testimonial-1" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 snap-child flex flex-col gap-4 sm:gap-5" style="width:min(340px,85vw)">
           <div class="quote-mark">&ldquo;</div>
-          <p class="text-white/70 text-sm leading-relaxed -mt-4">Praveen delivered a complete web application from scratch in under three weeks. The codebase was clean, well-documented, and deployed without a single hiccup. Exactly what we needed.</p>
+          <p class="text-white/70 text-sm leading-relaxed -mt-4">
+            Praveen took our 20-year car painting workshop in Kothagudem and built a first-class website. The before-and-after restoration showcase and instant WhatsApp inquiries brought us real car owners from day one.
+          </p>
           <footer class="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-3">
-            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">AK</span></div>
-            <div class="min-w-0"><cite class="text-white font-semibold text-sm not-italic block">Arjun Kapoor</cite><p class="text-white/40 text-xs truncate">Co-founder, DataNest Labs</p></div>
-            <div class="ml-auto flex-shrink-0"><span class="text-blue-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">RS</span></div>
+            <div class="min-w-0">
+              <cite class="text-white font-semibold text-sm not-italic block">Ramagani Santhosh Kumar</cite>
+              <p class="text-white/40 text-xs truncate">Owner, Srinivas Spray Painting Works (SSPW)</p>
+            </div>
+            <div class="ml-auto flex-shrink-0"><span class="text-amber-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
           </footer>
         </blockquote>
 
+        <!-- Client 2: Telangana Yoga -->
         <blockquote id="testimonial-2" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 snap-child flex flex-col gap-4 sm:gap-5" style="width:min(340px,85vw)">
           <div class="quote-mark">&ldquo;</div>
-          <p class="text-white/70 text-sm leading-relaxed -mt-4">We hired Praveen for Python automation and were blown away. The script he built cut our weekly reporting time by 80%. He understood our constraints immediately and built something that just works.</p>
+          <p class="text-white/70 text-sm leading-relaxed -mt-4">
+            Organizing championship trials across all 33 districts of Telangana demands clear information. Praveen structured the official portal with strict Aadhaar rules, age groups, and notice delivery that thousands of athletes rely on.
+          </p>
           <footer class="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-3">
-            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-teal-500 to-emerald-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">SR</span></div>
-            <div class="min-w-0"><cite class="text-white font-semibold text-sm not-italic block">Sneha Reddy</cite><p class="text-white/40 text-xs truncate">Operations Lead, Meridian Logistics</p></div>
-            <div class="ml-auto flex-shrink-0"><span class="text-blue-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">TY</span></div>
+            <div class="min-w-0">
+              <cite class="text-white font-semibold text-sm not-italic block">State Championship Committee</cite>
+              <p class="text-white/40 text-xs truncate">Telangana Yoga Association &bull; SATS</p>
+            </div>
+            <div class="ml-auto flex-shrink-0"><span class="text-emerald-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
           </footer>
         </blockquote>
 
+        <!-- Mentors / Hackathon Jury -->
         <blockquote id="testimonial-3" class="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-7 snap-child flex flex-col gap-4 sm:gap-5" style="width:min(340px,85vw)">
           <div class="quote-mark">&ldquo;</div>
-          <p class="text-white/70 text-sm leading-relaxed -mt-4">What stood out was that Praveen didn't just write code, he thought about the brand. Our website looked incredible on launch day and the video content gave us a real market presence.</p>
+          <p class="text-white/70 text-sm leading-relaxed -mt-4">
+            Praveen stands out for bridging complex systems algorithms with polished user experiences. From presenting PolarOPS for Smart India Hackathon to winning the Smart Systems Sprint, his technical versatility is outstanding.
+          </p>
           <footer class="mt-auto pt-4 border-t border-white/[0.08] flex items-center gap-3">
-            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">MV</span></div>
-            <div class="min-w-0"><cite class="text-white font-semibold text-sm not-italic block">Maya Venkatesh</cite><p class="text-white/40 text-xs truncate">Founder, Calla Collective</p></div>
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0"><span class="text-white text-xs font-bold">EP</span></div>
+            <div class="min-w-0">
+              <cite class="text-white font-semibold text-sm not-italic block">Technical Evaluation Panel</cite>
+              <p class="text-white/40 text-xs truncate">MVSR Engineering College &bull; R&amp;D Wing</p>
+            </div>
             <div class="ml-auto flex-shrink-0"><span class="text-blue-400 text-sm">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
           </footer>
         </blockquote>
@@ -411,9 +629,10 @@
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col items-center text-center mb-10 sm:mb-14 reveal gap-4">
       <span class="section-label">Get in Touch</span>
-      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Let's Build Something</h2>
-      <p class="text-white/50 max-w-md text-sm sm:text-base leading-relaxed">Have a project in mind? Reach out on any platform, I respond within 24 hours.</p>
+      <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white">Let's Build Something Great</h2>
+      <p class="text-white/50 max-w-md text-sm sm:text-base leading-relaxed">Available for freelance client platforms, software engineering contracts, and hackathon collaborations. I respond promptly.</p>
     </div>
+    
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 reveal max-w-3xl mx-auto" style="transition-delay:.1s">
 
       <a href="https://instagram.com/praveen_yalagandula_0413" target="_blank" rel="noopener noreferrer" id="contact-instagram"
@@ -442,11 +661,11 @@
 
     </div>
 
-    <div class="mt-6 sm:mt-8 max-w-3xl mx-auto reveal" style="transition-delay:.2s">
-      <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+    <div class="mt-8 sm:mt-10 max-w-3xl mx-auto reveal" style="transition-delay:.2s">
+      <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left border border-white/10">
         <div>
-          <h3 class="font-display font-semibold text-white text-lg sm:text-xl">Ready to start a project?</h3>
-          <p class="text-white/45 text-sm mt-1">Let's talk scope, timeline, and budget. No commitment required.</p>
+          <h3 class="font-display font-semibold text-white text-lg sm:text-xl">Have an ambitious project in mind?</h3>
+          <p class="text-white/45 text-sm mt-1">Let's discuss architecture, scope, and delivery milestones.</p>
         </div>
         <a href="mailto:prempraveen70@gmail.com" class="inline-flex items-center gap-2.5 font-semibold text-white px-6 py-3 rounded-full cta-btn shadow-xl text-sm whitespace-nowrap flex-shrink-0">
           Send a Message
@@ -463,69 +682,16 @@
 <footer class="border-t border-white/[0.06] py-8 px-4 sm:px-6">
   <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
     <span class="font-display font-bold gradient-text text-lg">Praveen Yalagandula<span class="text-white/30">.</span></span>
-    <p class="text-white/30 text-xs sm:text-sm">&#169; 2026 Praveen Yalagandula. All rights reserved.</p>
-    <div class="flex gap-5 text-xs text-white/30">
-      <a href="#services" class="hover:text-white/60 transition-colors">Services</a>
-      <a href="#gallery"  class="hover:text-white/60 transition-colors">Work</a>
-      <a href="#contact"  class="hover:text-white/60 transition-colors">Contact</a>
+    <p class="text-white/30 text-xs sm:text-sm">&#169; <span id="year">2026</span> Praveen Yalagandula. All rights reserved.</p>
+    <div class="flex flex-wrap justify-center gap-5 text-xs text-white/40">
+      <a href="#services"     class="hover:text-white transition-colors">Services</a>
+      <a href="#gallery"      class="hover:text-white transition-colors">Work</a>
+      <a href="#hackathons"   class="hover:text-white transition-colors">Hackathons</a>
+      <a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a>
+      <a href="#contact"      class="hover:text-white transition-colors">Contact</a>
     </div>
   </div>
 </footer>
 
-<script>
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu    = document.getElementById('mobile-menu');
-  const menuSpans     = mobileMenuBtn.querySelectorAll('span');
-  mobileMenuBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
-    if (isOpen) {
-      mobileMenu.style.maxHeight = '0px';
-      mobileMenuBtn.setAttribute('aria-expanded','false');
-      menuSpans[0].style.transform=''; menuSpans[1].style.opacity=''; menuSpans[2].style.transform=''; menuSpans[2].style.width='';
-    } else {
-      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
-      mobileMenuBtn.setAttribute('aria-expanded','true');
-      menuSpans[0].style.transform='rotate(45deg) translate(5px,5px)';
-      menuSpans[1].style.opacity='0';
-      menuSpans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
-      menuSpans[2].style.width='1.25rem';
-    }
-  });
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.style.maxHeight = '0px';
-      mobileMenuBtn.setAttribute('aria-expanded','false');
-      menuSpans[0].style.transform=''; menuSpans[1].style.opacity=''; menuSpans[2].style.transform=''; menuSpans[2].style.width='';
-    });
-  });
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Drag-to-scroll
-  function makeDraggable(el) {
-    if (!el) return;
-    let down=false, startX, scrollLeft;
-    el.addEventListener('mousedown', e => { down=true; el.classList.add('is-dragging'); startX=e.pageX-el.offsetLeft; scrollLeft=el.scrollLeft; });
-    el.addEventListener('mouseleave',()=>{ down=false; el.classList.remove('is-dragging'); });
-    el.addEventListener('mouseup',  ()=>{ down=false; el.classList.remove('is-dragging'); });
-    el.addEventListener('mousemove', e=>{ if(!down) return; e.preventDefault(); el.scrollLeft = scrollLeft - (e.pageX-el.offsetLeft-startX)*1.5; });
-  }
-  makeDraggable(document.getElementById('gallery-track'));
- 
-  // Gallery spotlight on hover
-  const gt = document.getElementById('gallery-track');
-  if (gt) { gt.addEventListener('mouseenter',()=>gt.classList.add('has-hover')); gt.addEventListener('mouseleave',()=>gt.classList.remove('has-hover')); }
-
-  // Nav gets more opaque on scroll
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 40 ? 'rgba(7,7,18,0.95)' : 'rgba(7,7,18,0.75)';
-  }, { passive: true });
-</script>
 </body>
 </html>
